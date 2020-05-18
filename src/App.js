@@ -23,6 +23,7 @@ const App = () => {
   const [disabled, setDisabled] = useState(false);
 
   const next = () => {
+    setTime(time + 10);
     setWord(allWords[Math.floor(Math.random() * allWords.length)]);
   };
 
@@ -37,7 +38,6 @@ const App = () => {
       setDisabled(false);
       setCpmResult(null);
       setLetterState([]);
-      return () => { }
     }
   }, [time, disabled]);
 
