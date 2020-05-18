@@ -28,14 +28,16 @@ const App = () => {
 
   useEffect(() => {
     if (time !== 0 && disabled === true) {
-      setTimeout(() => {
+      const timeoutId = setTimeout(() => {
         setTime(time - 1);
       }, 1000);
+      return () => clearTimeout(timeoutId);
     } else if (time === 0 || disabled === false) {
       setTime(15);
       setDisabled(false);
       setCpmResult(null);
       setLetterState([]);
+      return () => { }
     }
   }, [time, disabled]);
 
